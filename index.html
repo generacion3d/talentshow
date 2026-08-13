@@ -1,0 +1,1934 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Talento con Propósito | Día del Joven Metodista</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --orange: #f97316;
+            --orange-light: #fb923c;
+            --dark: #09090b;
+            --dark-2: #111113;
+            --dark-3: #18181b;
+            --white: #ffffff;
+            --muted: #a1a1aa;
+            --border: rgba(255,255,255,.10);
+            --success: #22c55e;
+        }
+
+        body {
+            font-family: Inter, Arial, sans-serif;
+            background:
+                radial-gradient(circle at 20% 10%, rgba(249,115,22,.16), transparent 30%),
+                radial-gradient(circle at 80% 30%, rgba(251,146,60,.08), transparent 25%),
+                var(--dark);
+            color: var(--white);
+            min-height: 100vh;
+        }
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .hero {
+            min-height: 380px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 60px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: rgba(249,115,22,.12);
+            filter: blur(100px);
+            border-radius: 50%;
+            top: -200px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .hero-content {
+            position: relative;
+            max-width: 800px;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 8px 16px;
+            border: 1px solid rgba(249,115,22,.4);
+            background: rgba(249,115,22,.08);
+            color: #fdba74;
+            border-radius: 100px;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 22px;
+        }
+
+        .hero h1 {
+            font-size: clamp(42px, 7vw, 78px);
+            line-height: .95;
+            font-weight: 900;
+            letter-spacing: -4px;
+        }
+
+        .hero h1 span {
+            color: var(--orange);
+        }
+
+        .hero p {
+            margin-top: 24px;
+            color: #d4d4d8;
+            font-size: 18px;
+            line-height: 1.7;
+        }
+
+        .date {
+            margin-top: 25px;
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .date-item {
+            padding: 10px 16px;
+            border-radius: 10px;
+            background: rgba(255,255,255,.06);
+            border: 1px solid var(--border);
+            font-size: 14px;
+        }
+
+        /* =========================
+           CONTAINER
+        ========================= */
+
+        .container {
+            width: min(1050px, calc(100% - 30px));
+            margin: -35px auto 80px;
+            position: relative;
+        }
+
+        .form-card {
+            background: rgba(17,17,19,.94);
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            padding: 35px;
+            box-shadow: 0 30px 80px rgba(0,0,0,.35);
+            backdrop-filter: blur(20px);
+        }
+
+        /* =========================
+           PROGRESS
+        ========================= */
+
+        .progress-container {
+            margin-bottom: 40px;
+        }
+
+        .progress-info {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            color: var(--muted);
+            font-size: 13px;
+        }
+
+        .progress-bar {
+            height: 6px;
+            background: #27272a;
+            border-radius: 20px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            width: 20%;
+            height: 100%;
+            background: linear-gradient(90deg, var(--orange), #fdba74);
+            border-radius: 20px;
+            transition: .4s ease;
+        }
+
+        /* =========================
+           STEPS
+        ========================= */
+
+        .step {
+            display: none;
+            animation: fadeIn .35s ease;
+        }
+
+        .step.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .step-header {
+            margin-bottom: 30px;
+        }
+
+        .step-number {
+            color: var(--orange);
+            font-weight: 800;
+            font-size: 13px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+
+        .step-header h2 {
+            font-size: 30px;
+            margin-bottom: 8px;
+        }
+
+        .step-header p {
+            color: var(--muted);
+            line-height: 1.6;
+        }
+
+        /* =========================
+           INPUTS
+        ========================= */
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .field {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .field.full {
+            grid-column: 1 / -1;
+        }
+
+        label {
+            font-size: 14px;
+            font-weight: 700;
+        }
+
+        .required {
+            color: var(--orange);
+        }
+
+        input,
+        textarea,
+        select {
+            width: 100%;
+            padding: 14px 15px;
+            background: #18181b;
+            border: 1px solid #27272a;
+            border-radius: 12px;
+            color: white;
+            outline: none;
+            font-size: 15px;
+            transition: .2s;
+        }
+
+        input:focus,
+        textarea:focus,
+        select:focus {
+            border-color: var(--orange);
+            box-shadow: 0 0 0 3px rgba(249,115,22,.10);
+        }
+
+        textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        select option {
+            background: #18181b;
+        }
+
+        /* =========================
+           CATEGORY CARDS
+        ========================= */
+
+        .categories {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+
+        .category {
+            position: relative;
+        }
+
+        .category input {
+            position: absolute;
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .category label {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            min-height: 100px;
+            padding: 18px;
+            background: #18181b;
+            border: 1px solid #27272a;
+            border-radius: 16px;
+            cursor: pointer;
+            transition: .25s;
+        }
+
+        .category label:hover {
+            border-color: rgba(249,115,22,.5);
+            transform: translateY(-2px);
+        }
+
+        .category input:checked + label {
+            border-color: var(--orange);
+            background: rgba(249,115,22,.10);
+            box-shadow: 0 0 0 2px rgba(249,115,22,.08);
+        }
+
+        .category-icon {
+            width: 50px;
+            height: 50px;
+            display: grid;
+            place-items: center;
+            border-radius: 14px;
+            background: #27272a;
+            font-size: 25px;
+            flex-shrink: 0;
+        }
+
+        .category input:checked + label .category-icon {
+            background: var(--orange);
+        }
+
+        .category-name {
+            font-size: 16px;
+            font-weight: 800;
+        }
+
+        .category-description {
+            color: var(--muted);
+            font-size: 12px;
+            margin-top: 4px;
+            font-weight: 400;
+        }
+
+        /* =========================
+           GROUP MEMBERS
+        ========================= */
+
+        .member-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .member {
+            display: flex;
+            gap: 10px;
+        }
+
+        .member input {
+            flex: 1;
+        }
+
+        .remove-member {
+            width: 45px;
+            border: 1px solid #3f3f46;
+            background: #18181b;
+            color: #f87171;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        .add-member {
+            margin-top: 12px;
+            background: transparent;
+            border: 1px dashed #52525b;
+            color: #d4d4d8;
+            padding: 12px 15px;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        .add-member:hover {
+            border-color: var(--orange);
+            color: var(--orange-light);
+        }
+
+        /* =========================
+           CHECKBOX
+        ========================= */
+
+        .checkbox-list {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+        }
+
+        .check {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: #18181b;
+            padding: 14px;
+            border: 1px solid #27272a;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        .check input {
+            width: auto;
+        }
+
+        /* =========================
+           RULES
+        ========================= */
+
+        .rules {
+            background: rgba(249,115,22,.06);
+            border: 1px solid rgba(249,115,22,.18);
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+        }
+
+        .rules h3 {
+            margin-bottom: 12px;
+        }
+
+        .rules ul {
+            padding-left: 20px;
+            color: #d4d4d8;
+            line-height: 1.8;
+            font-size: 14px;
+        }
+
+        /* =========================
+           BUTTONS
+        ========================= */
+
+        .actions {
+            display: flex;
+            justify-content: space-between;
+            gap: 15px;
+            margin-top: 35px;
+            padding-top: 25px;
+            border-top: 1px solid var(--border);
+        }
+
+        button {
+            font-family: inherit;
+            font-weight: 800;
+        }
+
+        .btn {
+            padding: 14px 22px;
+            border-radius: 12px;
+            cursor: pointer;
+            border: none;
+            font-size: 14px;
+            transition: .2s;
+        }
+
+        .btn-secondary {
+            background: #27272a;
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            background: #3f3f46;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--orange), #ea580c);
+            color: white;
+            box-shadow: 0 10px 25px rgba(249,115,22,.18);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 30px rgba(249,115,22,.28);
+        }
+
+        /* =========================
+           SUCCESS
+        ========================= */
+
+        .success {
+            display: none;
+            text-align: center;
+            padding: 60px 20px;
+        }
+
+        .success-icon {
+            width: 90px;
+            height: 90px;
+            display: grid;
+            place-items: center;
+            margin: 0 auto 25px;
+            background: rgba(34,197,94,.12);
+            border: 1px solid rgba(34,197,94,.3);
+            border-radius: 50%;
+            font-size: 42px;
+        }
+
+        .success h2 {
+            font-size: 38px;
+            margin-bottom: 12px;
+        }
+
+        .success p {
+            color: var(--muted);
+            line-height: 1.7;
+        }
+
+        .code {
+            display: inline-block;
+            margin-top: 25px;
+            padding: 14px 25px;
+            border: 1px dashed var(--orange);
+            border-radius: 12px;
+            font-weight: 900;
+            font-size: 20px;
+            color: #fdba74;
+        }
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            text-align: center;
+            padding: 0 20px 40px;
+            color: #71717a;
+            font-size: 13px;
+        }
+
+        footer strong {
+            color: #a1a1aa;
+        }
+
+        /* =========================
+           RESPONSIVE
+        ========================= */
+
+        @media (max-width: 700px) {
+
+            .hero {
+                min-height: 340px;
+                padding: 45px 15px;
+            }
+
+            .hero h1 {
+                letter-spacing: -2px;
+            }
+
+            .hero p {
+                font-size: 15px;
+            }
+
+            .form-card {
+                padding: 22px;
+                border-radius: 18px;
+            }
+
+            .form-grid,
+            .categories,
+            .checkbox-list {
+                grid-template-columns: 1fr;
+            }
+
+            .field.full {
+                grid-column: auto;
+            }
+
+            .step-header h2 {
+                font-size: 25px;
+            }
+
+            .actions {
+                flex-direction: column-reverse;
+            }
+
+            .btn {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- =========================
+     HERO
+========================= -->
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <div class="badge">
+            Día del Joven Metodista 2026
+        </div>
+
+        <h1>
+            Talento <span>con Propósito</span>
+        </h1>
+
+        <p>
+            Dios nos dio dones diferentes.<br>
+            Ahora es momento de compartirlos.
+        </p>
+
+        <div class="date">
+            <div class="date-item">📅 11 de octubre, 2026</div>
+            <div class="date-item">⏰ 3:00 p. m. — 7:00 p. m.</div>
+            <div class="date-item">🇨🇷 Costa Rica</div>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     FORM
+========================= -->
+
+<main class="container">
+
+    <div class="form-card">
+
+        <!-- PROGRESS -->
+
+        <div class="progress-container">
+
+            <div class="progress-info">
+                <span id="progressText">Paso 1 de 5</span>
+                <span id="progressPercent">20%</span>
+            </div>
+
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+
+        </div>
+
+
+        <form id="talentForm">
+
+
+            <!-- =========================
+                 STEP 1
+            ========================= -->
+
+            <section class="step active" data-step="1">
+
+                <div class="step-header">
+
+                    <div class="step-number">
+                        Paso 01
+                    </div>
+
+                    <h2>Cuéntanos de ti 👋</h2>
+
+                    <p>
+                        Primero necesitamos conocer un poco sobre ti.
+                    </p>
+
+                </div>
+
+
+                <div class="form-grid">
+
+                    <div class="field full">
+
+                        <label>
+                            Nombre completo <span class="required">*</span>
+                        </label>
+
+                        <input
+                            type="text"
+                            id="name"
+                            placeholder="Ej. Juan Pérez"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="field">
+
+                        <label>
+                            Edad <span class="required">*</span>
+                        </label>
+
+                        <input
+                            type="number"
+                            id="age"
+                            min="10"
+                            max="100"
+                            placeholder="Ej. 18"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="field">
+
+                        <label>
+                            Teléfono <span class="required">*</span>
+                        </label>
+
+                        <input
+                            type="tel"
+                            id="phone"
+                            placeholder="8888-8888"
+                            required
+                        >
+
+                    </div>
+
+
+
+                    <div class="field">
+
+                        <label>
+                            Iglesia / Congregación <span class="required">*</span>
+                        </label>
+
+                        <input
+                            type="text"
+                            id="church"
+                            placeholder="Ej. Iglesia Metodista..."
+                            required
+                        >
+
+                    </div>
+
+
+                  
+
+
+                    <div class="field">
+
+                        <label>
+                            Líder de jóvenes
+                        </label>
+
+                        <input
+                            type="text"
+                            id="leader"
+                            placeholder="Nombre del líder"
+                        >
+
+                    </div>
+
+
+                    <div class="field">
+
+                        <label>
+                            Teléfono del líder
+                        </label>
+
+                        <input
+                            type="tel"
+                            id="leaderPhone"
+                            placeholder="8888-8888"
+                        >
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =========================
+                 STEP 2
+            ========================= -->
+
+            <section class="step" data-step="2">
+
+                <div class="step-header">
+
+                    <div class="step-number">
+                        Paso 02
+                    </div>
+
+                    <h2>¿Cuál es tu talento? 🎤</h2>
+
+                    <p>
+                        Selecciona la categoría que mejor representa tu presentación.
+                    </p>
+
+                </div>
+
+
+                <div class="categories">
+
+
+                    <div class="category">
+
+                        <input
+                            type="radio"
+                            name="category"
+                            id="catVoice"
+                            value="Voz"
+                            required
+                        >
+
+                        <label for="catVoice">
+
+                            <div class="category-icon">🎤</div>
+
+                            <div>
+
+                                <div class="category-name">
+                                    Voz
+                                </div>
+
+                                <div class="category-description">
+                                    Solista, dúo o grupo vocal
+                                </div>
+
+                            </div>
+
+                        </label>
+
+                    </div>
+
+
+                    <div class="category">
+
+                        <input
+                            type="radio"
+                            name="category"
+                            id="catInstrument"
+                            value="Instrumento"
+                        >
+
+                        <label for="catInstrument">
+
+                            <div class="category-icon">🎸</div>
+
+                            <div>
+
+                                <div class="category-name">
+                                    Instrumento
+                                </div>
+
+                                <div class="category-description">
+                                    Instrumentos musicales
+                                </div>
+
+                            </div>
+
+                        </label>
+
+                    </div>
+
+
+                    <div class="category">
+
+                        <input
+                            type="radio"
+                            name="category"
+                            id="catVoiceInstrument"
+                            value="Voz + Instrumento"
+                        >
+
+                        <label for="catVoiceInstrument">
+
+                            <div class="category-icon">🎙️</div>
+
+                            <div>
+
+                                <div class="category-name">
+                                    Voz + Instrumento
+                                </div>
+
+                                <div class="category-description">
+                                    Cantar mientras tocas
+                                </div>
+
+                            </div>
+
+                        </label>
+
+                    </div>
+
+
+                    <div class="category">
+
+                        <input
+                            type="radio"
+                            name="category"
+                            id="catBand"
+                            value="Banda"
+                        >
+
+                        <label for="catBand">
+
+                            <div class="category-icon">🎸</div>
+
+                            <div>
+
+                                <div class="category-name">
+                                    Banda
+                                </div>
+
+                                <div class="category-description">
+                                    Grupo musical
+                                </div>
+
+                            </div>
+
+                        </label>
+
+                    </div>
+
+
+                    <div class="category">
+
+                        <input
+                            type="radio"
+                            name="category"
+                            id="catDance"
+                            value="Danza"
+                        >
+
+                        <label for="catDance">
+
+                            <div class="category-icon">💃</div>
+
+                            <div>
+
+                                <div class="category-name">
+                                    Danza
+                                </div>
+
+                                <div class="category-description">
+                                    Individual o grupal
+                                </div>
+
+                            </div>
+
+                        </label>
+
+                    </div>
+
+
+                    <div class="category">
+
+                        <input
+                            type="radio"
+                            name="category"
+                            id="catStage"
+                            value="Artes Escénicas"
+                        >
+
+                        <label for="catStage">
+
+                            <div class="category-icon">🎭</div>
+
+                            <div>
+
+                                <div class="category-name">
+                                    Artes Escénicas
+                                </div>
+
+                                <div class="category-description">
+                                    Teatro, poesía, comedia...
+                                </div>
+
+                            </div>
+
+                        </label>
+
+                    </div>
+
+
+                    <div class="category">
+
+                        <input
+                            type="radio"
+                            name="category"
+                            id="catFree"
+                            value="Talento Libre"
+                        >
+
+                        <label for="catFree">
+
+                            <div class="category-icon">✨</div>
+
+                            <div>
+
+                                <div class="category-name">
+                                    Talento Libre
+                                </div>
+
+                                <div class="category-description">
+                                    ¡Sorpréndenos!
+                                </div>
+
+                            </div>
+
+                        </label>
+
+                    </div>
+
+                </div>
+
+
+                <div class="field" style="margin-top:25px;">
+
+                    <label>
+                        Nombre de tu presentación <span class="required">*</span>
+                    </label>
+
+                    <input
+                        type="text"
+                        id="presentation"
+                        placeholder="Ej. Tu fidelidad"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="field" style="margin-top:20px;">
+
+                    <label>
+                        Cuéntanos brevemente qué presentarás
+                    </label>
+
+                    <textarea
+                        id="description"
+                        placeholder="Describe tu presentación..."
+                    ></textarea>
+
+                </div>
+
+            </section>
+
+
+            <!-- =========================
+                 STEP 3
+            ========================= -->
+
+            <section class="step" data-step="3">
+
+                <div class="step-header">
+
+                    <div class="step-number">
+                        Paso 03
+                    </div>
+
+                    <h2>Tu equipo 👥</h2>
+
+                    <p>
+                        Si tu presentación es grupal, agrega a todos los integrantes.
+                    </p>
+
+                </div>
+
+
+                <div class="form-grid">
+
+                    <div class="field">
+
+                        <label>
+                            Modalidad
+                        </label>
+
+                        <select id="modality">
+
+                            <option value="Individual">
+                                Individual
+                            </option>
+
+                            <option value="Grupal">
+                                Grupal
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="field">
+
+                        <label>
+                            Cantidad de integrantes
+                        </label>
+
+                        <input
+                            type="number"
+                            id="memberCount"
+                            min="1"
+                            max="30"
+                            value="1"
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <div id="membersContainer" style="display:none; margin-top:25px;">
+
+                    <label>
+                        Integrantes
+                    </label>
+
+                    <div class="member-list" id="memberList"></div>
+
+                    <button
+                        type="button"
+                        class="add-member"
+                        id="addMember"
+                    >
+                        + Agregar integrante
+                    </button>
+
+                </div>
+
+            </section>
+
+
+            <!-- =========================
+                 STEP 4
+            ========================= -->
+
+            <section class="step" data-step="4">
+
+                <div class="step-header">
+
+                    <div class="step-number">
+                        Paso 04
+                    </div>
+
+                    <h2>Producción 🎛️</h2>
+
+                    <p>
+                        Cuéntanos qué necesitas para preparar tu presentación.
+                    </p>
+
+                </div>
+
+
+                <div class="checkbox-list">
+
+                    <label class="check">
+                        <input type="checkbox" value="Micrófono">
+                        🎤 Micrófono
+                    </label>
+
+                    <label class="check">
+                        <input type="checkbox" value="Micrófono inalámbrico">
+                        🎙️ Micrófono inalámbrico
+                    </label>
+
+                    <label class="check">
+                        <input type="checkbox" value="DI / Caja directa">
+                        🎸 DI / Caja directa
+                    </label>
+
+                    <label class="check">
+                        <input type="checkbox" value="Entrada instrumento">
+                        🎛️ Entrada instrumento
+                    </label>
+
+                    <label class="check">
+                        <input type="checkbox" value="Pista musical">
+                        🎵 Pista musical
+                    </label>
+
+                    <label class="check">
+                        <input type="checkbox" value="Otro">
+                        ➕ Otro
+                    </label>
+
+                </div>
+
+
+                <div class="field" style="margin-top:25px;">
+
+                    <label>
+                        Necesidades técnicas especiales
+                    </label>
+
+                    <textarea
+                        id="technical"
+                        placeholder="Ej. Necesitamos 3 micrófonos y una entrada para guitarra..."
+                    ></textarea>
+
+                </div>
+
+
+                <div class="field" style="margin-top:20px;">
+
+                    <label>
+                        ¿Utilizarás una pista musical?
+                    </label>
+
+                    <select id="track">
+
+                        <option value="No">
+                            No
+                        </option>
+
+                        <option value="Sí">
+                            Sí
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div
+                    class="rules"
+                    style="margin-top:25px;"
+                >
+
+                    <h3>🎵 Sobre las pistas</h3>
+
+                    <ul>
+
+                        <li>
+                            Las pistas deberán entregarse previamente a la organización.
+                        </li>
+
+                        <li>
+                            Se recomienda utilizar formato MP3 o WAV.
+                        </li>
+
+                        <li>
+                            El archivo debe estar correctamente identificado con el nombre del participante.
+                        </li>
+
+                    </ul>
+
+                </div>
+
+            </section>
+
+
+            <!-- =========================
+                 STEP 5
+            ========================= -->
+
+            <section class="step" data-step="5">
+
+                <div class="step-header">
+
+                    <div class="step-number">
+                        Paso 05
+                    </div>
+
+                    <h2>¡Ya casi estás! 🔥</h2>
+
+                    <p>
+                        Revisa las condiciones antes de enviar tu inscripción.
+                    </p>
+
+                </div>
+
+
+                <div class="rules">
+
+                    <h3>📜 Reglamento básico</h3>
+
+                    <ul>
+
+                        <li>
+                            La presentación tendrá una duración máxima de <strong>5 minutos</strong>.
+                        </li>
+
+                        <li>
+                            El contenido deberá ser apropiado para un evento cristiano.
+                        </li>
+
+                        <li>
+                            Los participantes deberán respetar los valores y propósito del evento.
+                        </li>
+
+                        <li>
+                            La organización podrá realizar ajustes técnicos necesarios.
+                        </li>
+
+                        <li>
+                            Los participantes deberán presentarse en el horario indicado para pruebas de sonido.
+                        </li>
+
+                        <li>
+                            La inscripción no garantiza automáticamente la participación; estará sujeta a la organización del evento.
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <label class="check">
+
+                    <input
+                        type="checkbox"
+                        id="acceptRules"
+                        required
+                    >
+
+                    <span>
+                        He leído y acepto el reglamento del Talent Show.
+                    </span>
+
+                </label>
+
+
+                <label
+                    class="check"
+                    style="margin-top:12px;"
+                >
+
+                    <input
+                        type="checkbox"
+                        id="acceptMedia"
+                    >
+
+                    <span>
+                        Autorizo el uso de fotografías y videos tomados durante el evento para comunicación y promoción.
+                    </span>
+
+                </label>
+
+            </section>
+
+
+            <!-- =========================
+                 BUTTONS
+            ========================= -->
+
+            <div class="actions">
+
+                <button
+                    type="button"
+                    class="btn btn-secondary"
+                    id="prevBtn"
+                    style="visibility:hidden;"
+                >
+                    ← Atrás
+                </button>
+
+                <button
+                    type="button"
+                    class="btn btn-primary"
+                    id="nextBtn"
+                >
+                    Continuar →
+                </button>
+
+            </div>
+
+        </form>
+
+
+        <!-- =========================
+             SUCCESS
+        ========================= -->
+
+        <div class="success" id="success">
+
+            <div class="success-icon">
+                ✓
+            </div>
+
+            <h2>¡Inscripción recibida! 🎉</h2>
+
+            <p>
+                Gracias por querer compartir el talento que Dios te ha dado.
+                <br>
+                Pronto estaremos comunicándonos contigo con más información.
+            </p>
+
+            <div class="code">
+                Código: <span id="registrationCode"></span>
+            </div>
+
+        </div>
+
+    </div>
+
+</main>
+
+
+<footer>
+
+    <strong>Talento con Propósito</strong>
+    · Día del Joven Metodista 2026
+
+    <br><br>
+
+    Una celebración de los dones que Dios ha puesto en nosotros. ❤️
+
+</footer>
+
+
+<script>
+
+    /* =========================
+       VARIABLES
+    ========================= */
+
+
+    const API_URL =
+        "https://script.google.com/macros/s/AKfycbzVSC91ZwYN0Vwk4E5Nf1JtnjxhWvW0ehcm5FkK4yzVV4ITyRK2mdZ1REZl4T0ggeFA/exec";
+        
+
+
+    let currentStep = 1;
+
+    const totalSteps = 5;
+
+    const steps = document.querySelectorAll(".step");
+
+    const progressFill =
+        document.getElementById("progressFill");
+
+    const progressText =
+        document.getElementById("progressText");
+
+    const progressPercent =
+        document.getElementById("progressPercent");
+
+    const nextBtn =
+        document.getElementById("nextBtn");
+
+    const prevBtn =
+        document.getElementById("prevBtn");
+
+
+    /* =========================
+       SHOW STEP
+    ========================= */
+
+    function showStep(step) {
+
+        steps.forEach(s => {
+
+            s.classList.remove("active");
+
+        });
+
+        document
+            .querySelector(`[data-step="${step}"]`)
+            .classList.add("active");
+
+
+        const percent =
+            (step / totalSteps) * 100;
+
+
+        progressFill.style.width =
+            percent + "%";
+
+
+        progressText.textContent =
+            `Paso ${step} de ${totalSteps}`;
+
+
+        progressPercent.textContent =
+            `${percent}%`;
+
+
+        prevBtn.style.visibility =
+            step === 1 ? "hidden" : "visible";
+
+
+        nextBtn.textContent =
+            step === totalSteps
+                ? "🔥 Enviar inscripción"
+                : "Continuar →";
+
+
+        window.scrollTo({
+            top: document.querySelector(".form-card").offsetTop - 20,
+            behavior: "smooth"
+        });
+
+    }
+
+
+    /* =========================
+       VALIDATE
+    ========================= */
+
+    function validateStep() {
+
+        const current =
+            document.querySelector(
+                `[data-step="${currentStep}"]`
+            );
+
+
+        const inputs =
+            current.querySelectorAll(
+                "input, select, textarea"
+            );
+
+
+        for (const input of inputs) {
+
+            if (
+                input.hasAttribute("required") &&
+                !input.checkValidity()
+            ) {
+
+                input.reportValidity();
+
+                return false;
+
+            }
+
+        }
+
+
+        return true;
+
+    }
+
+
+    /* =========================
+       NEXT
+    ========================= */
+
+    nextBtn.addEventListener("click", () => {
+
+        if (!validateStep()) return;
+
+
+        if (currentStep < totalSteps) {
+
+            currentStep++;
+
+            showStep(currentStep);
+
+        } else {
+
+            submitForm();
+
+        }
+
+    });
+
+
+    /* =========================
+       PREVIOUS
+    ========================= */
+
+    prevBtn.addEventListener("click", () => {
+
+        if (currentStep > 1) {
+
+            currentStep--;
+
+            showStep(currentStep);
+
+        }
+
+    });
+
+
+    /* =========================
+       GROUP MEMBERS
+    ========================= */
+
+    const modality =
+        document.getElementById("modality");
+
+    const membersContainer =
+        document.getElementById("membersContainer");
+
+    const memberList =
+        document.getElementById("memberList");
+
+    const memberCount =
+        document.getElementById("memberCount");
+
+
+    function createMember(value = "") {
+
+        const wrapper =
+            document.createElement("div");
+
+        wrapper.className = "member";
+
+
+        const input =
+            document.createElement("input");
+
+        input.type = "text";
+
+        input.placeholder =
+            "Nombre del integrante";
+
+        input.value = value;
+
+
+        const remove =
+            document.createElement("button");
+
+        remove.type = "button";
+
+        remove.className =
+            "remove-member";
+
+        remove.textContent = "×";
+
+
+        remove.addEventListener(
+            "click",
+            () => wrapper.remove()
+        );
+
+
+        wrapper.appendChild(input);
+
+        wrapper.appendChild(remove);
+
+        memberList.appendChild(wrapper);
+
+    }
+
+
+    function updateMembers() {
+
+        if (modality.value === "Grupal") {
+
+            membersContainer.style.display =
+                "block";
+
+
+            if (memberList.children.length === 0) {
+
+                createMember();
+
+                createMember();
+
+            }
+
+        } else {
+
+            membersContainer.style.display =
+                "none";
+
+            memberList.innerHTML = "";
+
+        }
+
+    }
+
+
+    modality.addEventListener(
+        "change",
+        updateMembers
+    );
+
+
+    document
+        .getElementById("addMember")
+        .addEventListener(
+            "click",
+            () => {
+
+                if (memberList.children.length >= 30) {
+
+                    alert(
+                        "Máximo 30 integrantes."
+                    );
+
+                    return;
+
+                }
+
+                createMember();
+
+            }
+        );
+
+
+    /* =========================
+       MEMBER COUNT
+    ========================= */
+
+    memberCount.addEventListener(
+        "change",
+        () => {
+
+            if (modality.value !== "Grupal")
+                return;
+
+
+            const count =
+                Math.min(
+                    Math.max(
+                        parseInt(memberCount.value) || 1,
+                        1
+                    ),
+                    30
+                );
+
+
+            memberCount.value = count;
+
+            memberList.innerHTML = "";
+
+
+            for (
+                let i = 0;
+                i < count;
+                i++
+            ) {
+
+                createMember();
+
+            }
+
+        }
+    );
+
+
+    /* =========================
+       SUBMIT
+    ========================= */
+
+async function submitForm() {
+
+    const category =
+        document.querySelector(
+            'input[name="category"]:checked'
+        )?.value || "";
+
+
+    const members =
+        [...document.querySelectorAll(
+            "#memberList input"
+        )]
+        .map(input => input.value.trim())
+        .filter(value => value !== "");
+
+
+    const technicalNeeds =
+        [...document.querySelectorAll(
+            ".checkbox-list input:checked"
+        )]
+        .map(input => input.value);
+
+
+    const data = {
+
+        name:
+            document.getElementById("name").value.trim(),
+
+        age:
+            document.getElementById("age").value,
+
+        phone:
+            document.getElementById("phone").value.trim(),
+
+    
+
+        church:
+            document.getElementById("church").value.trim(),
+
+ 
+
+        leader:
+            document.getElementById("leader").value.trim(),
+
+        leaderPhone:
+            document.getElementById("leaderPhone").value.trim(),
+
+        category:
+
+            category,
+
+        presentation:
+            document
+                .getElementById("presentation")
+                .value
+                .trim(),
+
+        description:
+            document
+                .getElementById("description")
+                .value
+                .trim(),
+
+        modality:
+            document
+                .getElementById("modality")
+                .value,
+
+        members:
+            members,
+
+        technicalNeeds:
+            technicalNeeds,
+
+        technical:
+            document
+                .getElementById("technical")
+                .value
+                .trim(),
+
+        track:
+            document
+                .getElementById("track")
+                .value,
+
+        acceptMedia:
+            document
+                .getElementById("acceptMedia")
+                .checked
+
+    };
+
+
+    try {
+
+        nextBtn.disabled = true;
+
+        nextBtn.textContent =
+            "Enviando...";
+
+
+        const response =
+            await fetch(
+                API_URL,
+                {
+
+                    method: "POST",
+
+                    headers: {
+                        "Content-Type":
+                            "text/plain;charset=utf-8"
+                    },
+
+                    body:
+                        JSON.stringify(data)
+
+                }
+            );
+
+
+        const result =
+            await response.json();
+
+
+        if (!result.success) {
+
+            throw new Error(
+                result.error ||
+                "No se pudo registrar la inscripción."
+            );
+
+        }
+
+
+        document.getElementById(
+            "talentForm"
+        ).style.display = "none";
+
+
+        document.querySelector(
+            ".progress-container"
+        ).style.display = "none";
+
+
+        document.getElementById(
+            "success"
+        ).style.display = "block";
+
+
+        document.getElementById(
+            "registrationCode"
+        ).textContent =
+            result.code;
+
+
+        window.scrollTo({
+
+            top: 0,
+
+            behavior: "smooth"
+
+        });
+
+
+    } catch (error) {
+
+        console.error(error);
+
+
+        alert(
+            "Ocurrió un error al enviar la inscripción.\n\n" +
+            error.message
+        );
+
+
+        nextBtn.disabled = false;
+
+        nextBtn.textContent =
+            "🔥 Enviar inscripción";
+
+    }
+
+}
+
+
+    /* =========================
+       INITIALIZE
+    ========================= */
+
+    showStep(1);
+
+</script>
+
+</body>
+</html>
