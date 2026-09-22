@@ -4,10 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>Talento con Propósito | Día del Joven Metodista 2026</title>
-  <meta name="description" content="Inscríbete gratis al Día del Joven Metodista 2026: 11 de octubre. Ven a disfrutar o presenta tu talento.">
+  <meta name="description" content="Día del Joven Metodista 2026: 11 de octubre. Entrada e inscripción al Talent Show gratis; cena ₡2.500. Inscríbete para asistir o presentar tu talento.">
   <meta name="theme-color" content="#09090b">
   <meta property="og:title" content="Talento con Propósito | Día del Joven Metodista 2026">
   <meta property="og:description" content="11 de octubre · 3:00 a 7:00 p. m. · Entrada gratuita. Inscríbete para asistir o para presentar tu talento.">
+
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"></noscript>
 
   <style>
     *{margin:0;padding:0;box-sizing:border-box}
@@ -41,12 +45,31 @@
     .datos-evento{margin-top:22px;display:flex;justify-content:center;gap:10px;flex-wrap:wrap}
     .datos-evento span{padding:9px 14px;border-radius:10px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);font-size:.9rem}
     .incluye{margin:22px auto 0;display:flex;justify-content:center;flex-wrap:wrap;gap:8px 18px;color:#d4d4d8;font-size:.92rem}
+    .datos-evento i,.incluye i{color:var(--orange);margin-right:6px}
+    .incluye .destacado{color:#fff;font-weight:800;background:rgba(249,115,22,.16);border:1px solid rgba(249,115,22,.45);padding:5px 12px;border-radius:99px}
+    .incluye .destacado i{color:var(--orange-light)}
+    .precios{margin:24px auto 0;display:grid;grid-template-columns:repeat(3,1fr);gap:10px;max-width:720px;text-align:left}
+    .precio-item{display:flex;align-items:center;gap:12px;padding:14px;border-radius:14px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1)}
+    .precio-item > i{font-size:1.3rem;color:var(--orange);width:1.4em;text-align:center;flex-shrink:0}
+    .precio-item strong{display:block;font-size:.95rem}
+    .precio-item span{display:block;color:var(--muted);font-size:.8rem;line-height:1.35;margin-top:2px}
+    .precio-item.naranja{background:rgba(249,115,22,.12);border-color:rgba(249,115,22,.45)}
+    .precio-item.naranja span{color:#fed7aa}
+    .aviso-ventas{margin:14px auto 0;max-width:720px;display:flex;gap:14px;align-items:flex-start;text-align:left;padding:16px 18px;border-radius:14px;background:rgba(250,204,21,.08);border:1.5px solid rgba(250,204,21,.45)}
+    .aviso-ventas > i{font-size:1.5rem;color:#facc15;margin-top:2px}
+    .aviso-ventas p{color:#fef9c3;font-size:.95rem;line-height:1.55}
+    .aviso-ventas strong{color:#fff}
+    .nota-ventas{display:flex;gap:10px;align-items:flex-start;margin-top:14px;padding:12px 14px;border-radius:12px;background:rgba(250,204,21,.08);border:1px solid rgba(250,204,21,.35);color:#fef9c3;font-size:.86rem;line-height:1.5}
+    .nota-ventas i{color:#facc15;margin-top:3px}
+    @media (max-width:640px){ .precios{grid-template-columns:1fr} }
+    .gratis i{margin-right:6px}
     .gratis{margin-top:20px;display:inline-block;color:#86efac;font-weight:800;font-size:.9rem;background:rgba(34,197,94,.08);border:1px solid rgba(34,197,94,.22);padding:8px 16px;border-radius:99px}
 
     /* ===== TARJETA ===== */
     .container{width:min(760px,calc(100% - 28px));margin:-40px auto 70px;position:relative}
     .card{background:rgba(17,17,19,.95);border:1px solid rgba(255,255,255,.08);border-radius:24px;padding:34px;box-shadow:0 30px 80px rgba(0,0,0,.35)}
     .bloque + .bloque{margin-top:34px;padding-top:30px;border-top:1px solid rgba(255,255,255,.07)}
+    .bloque h2 i{color:var(--orange);margin-right:8px;font-size:.9em}
     .bloque h2{font-size:1.45rem;letter-spacing:-.02em;margin-bottom:6px}
     .bloque > p.sub{color:var(--muted);line-height:1.55;margin-bottom:20px;font-size:.95rem}
 
@@ -71,14 +94,17 @@
     .opcion label:hover{transform:translateY(-2px);border-color:rgba(249,115,22,.5)}
     .opcion input:checked + label{border-color:var(--orange);background:rgba(249,115,22,.1)}
     .opcion input:focus-visible + label{outline:3px solid rgba(249,115,22,.55);outline-offset:2px}
-    .op-emoji{font-size:1.9rem}
+    .op-icono{font-size:1.7rem;color:var(--orange);line-height:1}
+    .opcion input:checked + label .op-icono{color:var(--orange-light)}
     .op-titulo{font-weight:900;font-size:1.08rem}
     .op-desc{color:var(--muted);font-size:.86rem;line-height:1.45}
 
     /* ===== CHIPS (categoría, necesidades, sí/no) ===== */
     .chips{display:flex;flex-wrap:wrap;gap:9px}
     .chip input{position:absolute;opacity:0;pointer-events:none}
-    .chip label{display:inline-flex;align-items:center;gap:7px;padding:10px 15px;border-radius:99px;background:var(--field);border:1.5px solid var(--line);cursor:pointer;font-weight:600;font-size:.92rem;transition:border-color .2s,background .2s}
+    .chip label i{color:var(--orange);width:1.1em;text-align:center}
+    .chip input:checked + label i{color:var(--orange-light)}
+    .chip label{display:inline-flex;align-items:center;gap:8px;padding:10px 15px;border-radius:99px;background:var(--field);border:1.5px solid var(--line);cursor:pointer;font-weight:600;font-size:.92rem;transition:border-color .2s,background .2s}
     .chip label:hover{border-color:rgba(249,115,22,.5)}
     .chip input:checked + label{border-color:var(--orange);background:rgba(249,115,22,.14);color:#fff}
     .chip input:focus-visible + label{outline:3px solid rgba(249,115,22,.55);outline-offset:2px}
@@ -88,9 +114,41 @@
     .bloque.cena{margin-top:34px;padding-top:24px;border-top:2px solid var(--orange)}
     .cena h2{font-size:clamp(1.6rem,5vw,2rem)}
     .cena .sub{color:#fed7aa !important}
+    .cena h2 i{color:var(--orange);margin-right:8px}
+    .cena-importante{display:inline-flex;align-items:center;gap:7px;background:var(--orange);color:#fff;font-weight:900;font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;padding:5px 11px;border-radius:99px;margin-bottom:12px}
+    .cena.falta{border-color:var(--err);box-shadow:0 0 0 4px rgba(248,113,113,.18);animation:sacudir .45s ease}
+    .cena-error{display:none;margin-top:14px;color:#fecaca;font-weight:700;font-size:.92rem}
+    .cena.falta .cena-error{display:flex;align-items:center;gap:8px}
+    @keyframes sacudir{20%,60%{transform:translateX(-6px)}40%,80%{transform:translateX(6px)}}
+    .resumen-cena{display:inline-flex;align-items:center;gap:10px;margin-top:16px;padding:12px 18px;border-radius:14px;font-weight:800}
+    .resumen-cena.si{background:rgba(249,115,22,.15);border:1.5px solid var(--orange);color:#fff}
+    .resumen-cena.no{background:var(--field);border:1px solid var(--line);color:var(--muted)}
+    .resumen-cena i{font-size:1.2rem;color:var(--orange)}
+    .precio{display:block;font-size:.95rem;font-weight:800;opacity:.9;margin-top:2px}
+    .pago{margin-top:18px;padding:20px;border-radius:16px;background:rgba(9,9,11,.65);border:1px solid rgba(249,115,22,.35);animation:aparecer .35s ease}
+    .pago h3{font-size:1.05rem;margin-bottom:4px;display:flex;align-items:center;gap:8px}
+    .pago h3 i{color:var(--orange)}
+    .monto{font-size:1.9rem;font-weight:900;color:#fff;letter-spacing:-.02em}
+    .medios{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:14px 0 16px}
+    .medio{background:var(--field);border:1px solid var(--line);border-radius:12px;padding:13px 14px}
+    .medio small{display:flex;align-items:center;gap:7px;color:var(--orange-light);font-weight:800;font-size:.78rem;text-transform:uppercase;letter-spacing:.05em;margin-bottom:6px}
+    .medio strong{display:block;font-size:1.02rem;word-break:break-word}
+    .medio span{display:block;color:var(--muted);font-size:.8rem;margin-top:3px}
+    .copiar{margin-top:8px;background:none;border:1px solid var(--line);border-radius:8px;padding:5px 10px;font-size:.78rem;font-weight:700;color:var(--orange-light);cursor:pointer}
+    .copiar:hover{border-color:var(--orange)}
+    .subir{position:relative;display:flex;flex-direction:column;align-items:center;gap:6px;padding:20px;border:2px dashed #3f3f46;border-radius:14px;text-align:center;cursor:pointer;transition:border-color .2s,background .2s}
+    .subir:hover{border-color:var(--orange);background:rgba(249,115,22,.05)}
+    .subir i{font-size:1.8rem;color:var(--orange)}
+    .subir strong{font-size:.98rem}
+    .subir span{color:var(--muted);font-size:.8rem}
+    .subir input{position:absolute;opacity:0;width:1px;height:1px}
+    .subir.listo{border-style:solid;border-color:var(--ok);background:rgba(34,197,94,.07)}
+    .subir.listo i{color:var(--ok)}
+    @media (max-width:640px){ .medios{grid-template-columns:1fr} }
     .eleccion.cena-opciones{grid-template-columns:1fr 1fr;gap:12px}
     .cena-opciones .opcion label{align-items:center;text-align:center;padding:22px 14px;background:rgba(9,9,11,.6)}
-    .cena-opciones .op-emoji{font-size:2.4rem}
+    .cena-opciones .op-icono{font-size:2.4rem}
+    .cena-opciones .opcion input:checked + label .op-icono{color:#fff}
     .cena-opciones .op-titulo{font-size:1.25rem}
     .cena-opciones .opcion input:checked + label{background:var(--orange);border-color:var(--orange);color:#fff;box-shadow:0 10px 26px rgba(249,115,22,.3)}
 
@@ -100,6 +158,7 @@
     @keyframes aparecer{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
     .stack{display:flex;flex-direction:column;gap:18px}
     .reglas{background:rgba(249,115,22,.06);border:1px solid rgba(249,115,22,.2);border-radius:14px;padding:16px 18px}
+    .reglas summary i{color:var(--orange);margin-right:8px}
     .reglas summary{cursor:pointer;font-weight:800;list-style:none;display:flex;justify-content:space-between;align-items:center}
     .reglas summary::-webkit-details-marker{display:none}
     .reglas summary::after{content:"Ver";font-size:.8rem;color:var(--orange-light);font-weight:700}
@@ -119,6 +178,7 @@
 
     /* ===== ÉXITO ===== */
     .exito{text-align:center;padding:30px 6px}
+    .exito-icono i{color:var(--ok)}
     .exito-icono{width:86px;height:86px;display:grid;place-items:center;margin:0 auto 22px;background:rgba(34,197,94,.12);border:1px solid rgba(34,197,94,.3);border-radius:50%;font-size:2.4rem;animation:pop .45s ease}
     @keyframes pop{0%{transform:scale(.5);opacity:0}70%{transform:scale(1.08)}100%{transform:scale(1);opacity:1}}
     .exito h2{font-size:clamp(1.8rem,5vw,2.4rem);margin-bottom:10px}
@@ -152,19 +212,30 @@
       <p class="lead">Dios nos dio dones diferentes.<br>Ahora es momento de compartirlos.</p>
 
       <div class="datos-evento">
-        <span>📅 Domingo 11 de octubre</span>
-        <span>⏰ 3:00 – 7:00 p. m.</span>
-        <span>🇨🇷 Costa Rica</span>
+        <span><i class="fa-regular fa-calendar"></i>Domingo 11 de octubre</span>
+        <span><i class="fa-regular fa-clock"></i>3:00 – 7:00 p. m.</span>
+        <span><i class="fa-solid fa-location-dot"></i>Costa Rica</span>
       </div>
 
-      <div class="incluye">
-        <span>☕ Cafecito</span>
-        <span>🍪 Refrigerio</span>
-        <span>🛍️ Ventas</span>
-        <span>🍽️ Cena</span>
+      <div class="precios">
+        <div class="precio-item">
+          <i class="fa-solid fa-ticket"></i>
+          <div><strong>Entrada y Talent Show</strong><span>Gratis: asistir e inscribir tu talento no cuesta nada</span></div>
+        </div>
+        <div class="precio-item naranja">
+          <i class="fa-solid fa-utensils"></i>
+          <div><strong>Cena</strong><span>₡2.500 · se paga al inscribirte</span></div>
+        </div>
+        <div class="precio-item">
+          <i class="fa-solid fa-store"></i>
+          <div><strong>Ventas</strong><span>Café, comidas rápidas y más · se pagan aparte</span></div>
+        </div>
       </div>
 
-      <div class="gratis">✨ Entrada e inscripción gratuitas</div>
+      <div class="aviso-ventas">
+        <i class="fa-solid fa-mug-hot"></i>
+        <p>Durante toda la tarde habrá <strong>ventas de café, comidas rápidas, postres y más</strong>. Estas ventas <strong>no están incluidas en la cena</strong>: cada compra se paga aparte en el puesto. ¡Lleva dinero para apoyar!</p>
+      </div>
     </div>
   </header>
 
@@ -208,6 +279,50 @@
           </div>
         </section>
 
+        <!-- CENA (lo más importante para la organización) -->
+        <section class="bloque cena" id="bloqueCena" aria-labelledby="tituloCena">
+          <span class="cena-importante"><i class="fa-solid fa-triangle-exclamation"></i>Muy importante</span>
+          <h2 id="tituloCena"><i class="fa-solid fa-utensils"></i>¿Te quedas a la cena? <span class="req">*</span></h2>
+          <p class="sub">Con esta respuesta calculamos cuánta comida preparar. La cena tiene un costo de <strong>₡2.500</strong> y se confirma con el comprobante de pago.</p>
+          <div class="eleccion cena-opciones" role="radiogroup" aria-label="Cena">
+            <div class="opcion">
+              <input type="radio" name="cena" id="cenaSi" value="Sí" required>
+              <label for="cenaSi"><i class="op-icono fa-solid fa-utensils" aria-hidden="true"></i><span class="op-titulo">Sí, me quedo<span class="precio">₡2.500</span></span></label>
+            </div>
+            <div class="opcion">
+              <input type="radio" name="cena" id="cenaNo" value="No">
+              <label for="cenaNo"><i class="op-icono fa-solid fa-person-walking-arrow-right" aria-hidden="true"></i><span class="op-titulo">No, gracias</span></label>
+            </div>
+          </div>
+          <fieldset class="pago" id="pago" hidden disabled>
+            <h3><i class="fa-solid fa-wallet"></i>Paga tu cena</h3>
+            <div class="monto">₡2.500</div>
+            <div class="medios">
+              <div class="medio">
+                <small><i class="fa-solid fa-mobile-screen-button"></i>SINPE Móvil</small>
+                <strong>6363-0150</strong>
+                <span>Asociación Iglesia Evangélica Metodista</span>
+                <button type="button" class="copiar" data-copiar="63630150">Copiar número</button>
+              </div>
+              <div class="medio">
+                <small><i class="fa-solid fa-building-columns"></i>Transferencia · Banco Nacional</small>
+                <strong>CR31 0151 8581 0010 0022 64</strong>
+                <span>Asociación Iglesia Evangélica Metodista</span>
+                <button type="button" class="copiar" data-copiar="CR31015185810010002264">Copiar IBAN</button>
+              </div>
+            </div>
+            <p class="ayuda" style="margin-bottom:12px">En el detalle del pago escribe: <strong>Cena + tu nombre</strong>.</p>
+            <p class="nota-ventas" style="margin:0 0 14px"><i class="fa-solid fa-circle-info"></i><span>Los ₡2.500 son <strong>solo la cena</strong>. El café, las comidas rápidas y demás ventas del evento se pagan aparte.</span></p>
+            <label class="subir" id="subir">
+              <i class="fa-solid fa-cloud-arrow-up" id="subirIcono"></i>
+              <strong id="subirTitulo">Sube el comprobante <span class="req">*</span></strong>
+              <span id="subirDetalle">Foto o captura de pantalla (también PDF) · máx. 5 MB</span>
+              <input type="file" id="comprobante" accept="image/*,.pdf" required>
+            </label>
+          </fieldset>
+          <p class="cena-error" role="alert"><i class="fa-solid fa-circle-exclamation"></i><span id="cenaErrorTexto">Falta responder si te quedas a la cena.</span></p>
+        </section>
+
         <!-- 2. ¿CÓMO PARTICIPAS? -->
         <section class="bloque">
           <h2>¿Cómo vas a vivir el evento?</h2>
@@ -217,53 +332,37 @@
             <div class="opcion">
               <input type="radio" name="tipo" id="tipoAsistente" value="Asistente" required>
               <label for="tipoAsistente">
-                <span class="op-emoji">🙌</span>
+                <i class="op-icono fa-solid fa-hands-clapping" aria-hidden="true"></i>
                 <span class="op-titulo">Voy a asistir</span>
-                <span class="op-desc">Quiero ir a apoyar, compartir y disfrutar.</span>
+                <span class="op-desc">Quiero ir a apoyar, compartir y disfrutar. La entrada es gratis.</span>
               </label>
             </div>
             <div class="opcion">
               <input type="radio" name="tipo" id="tipoParticipante" value="Participante">
               <label for="tipoParticipante">
-                <span class="op-emoji">🎤</span>
+                <i class="op-icono fa-solid fa-microphone" aria-hidden="true"></i>
                 <span class="op-titulo">Quiero presentar un talento</span>
-                <span class="op-desc">Canto, música, danza, teatro o lo que Dios te dio.</span>
+                <span class="op-desc">Canto, música, danza, teatro o lo que Dios te dio. Inscribirte es gratis.</span>
               </label>
-            </div>
-          </div>
-        </section>
-
-        <!-- CENA -->
-        <section class="bloque cena" aria-labelledby="tituloCena">
-          <h2 id="tituloCena">🍽️ ¿Te quedas a la cena? <span class="req">*</span></h2>
-          <p class="sub">Es muy importante para calcular cuánta comida preparar. ¡Contesta con sinceridad!</p>
-          <div class="eleccion cena-opciones" role="radiogroup" aria-label="Cena">
-            <div class="opcion">
-              <input type="radio" name="cena" id="cenaSi" value="Sí" required>
-              <label for="cenaSi"><span class="op-emoji">😋</span><span class="op-titulo">Sí, me quedo</span></label>
-            </div>
-            <div class="opcion">
-              <input type="radio" name="cena" id="cenaNo" value="No">
-              <label for="cenaNo"><span class="op-emoji">👋</span><span class="op-titulo">No, gracias</span></label>
             </div>
           </div>
         </section>
 
         <!-- 3. TALENTO (solo participantes) -->
         <fieldset class="bloque" id="talento" hidden disabled>
-          <h2>Tu presentación 🎶</h2>
-          <p class="sub">Si es en grupo, basta con que una persona inscriba la presentación.</p>
+          <h2><i class="fa-solid fa-music"></i>Tu presentación</h2>
+          <p class="sub">La inscripción al Talent Show es <strong>gratis</strong>. Si es en grupo, basta con que una persona inscriba la presentación.</p>
 
           <div class="stack">
             <div class="field">
               <span class="lbl">Categoría <span class="req">*</span></span>
               <div class="chips" role="radiogroup" aria-label="Categoría">
-                <div class="chip"><input type="radio" name="categoria" id="c1" value="Canto" required><label for="c1">🎤 Canto</label></div>
-                <div class="chip"><input type="radio" name="categoria" id="c2" value="Instrumento"><label for="c2">🎸 Instrumento</label></div>
-                <div class="chip"><input type="radio" name="categoria" id="c3" value="Banda"><label for="c3">🥁 Banda</label></div>
-                <div class="chip"><input type="radio" name="categoria" id="c4" value="Danza"><label for="c4">💃 Danza</label></div>
-                <div class="chip"><input type="radio" name="categoria" id="c5" value="Teatro o poesía"><label for="c5">🎭 Teatro o poesía</label></div>
-                <div class="chip"><input type="radio" name="categoria" id="c6" value="Otro"><label for="c6">✨ Otro</label></div>
+                <div class="chip"><input type="radio" name="categoria" id="c1" value="Canto" required><label for="c1"><i class="fa-solid fa-microphone"></i>Canto</label></div>
+                <div class="chip"><input type="radio" name="categoria" id="c2" value="Instrumento"><label for="c2"><i class="fa-solid fa-guitar"></i>Instrumento</label></div>
+                <div class="chip"><input type="radio" name="categoria" id="c3" value="Banda"><label for="c3"><i class="fa-solid fa-drum"></i>Banda</label></div>
+                <div class="chip"><input type="radio" name="categoria" id="c4" value="Danza"><label for="c4"><i class="fa-solid fa-child-reaching"></i>Danza</label></div>
+                <div class="chip"><input type="radio" name="categoria" id="c5" value="Teatro o poesía"><label for="c5"><i class="fa-solid fa-masks-theater"></i>Teatro o poesía</label></div>
+                <div class="chip"><input type="radio" name="categoria" id="c6" value="Otro"><label for="c6"><i class="fa-solid fa-wand-magic-sparkles"></i>Otro</label></div>
               </div>
             </div>
 
@@ -275,8 +374,8 @@
             <div class="field">
               <span class="lbl">¿Solo o en grupo? <span class="req">*</span></span>
               <div class="chips">
-                <div class="chip"><input type="radio" name="modalidad" id="m1" value="Individual" required checked><label for="m1">🙋 Solo</label></div>
-                <div class="chip"><input type="radio" name="modalidad" id="m2" value="Grupal"><label for="m2">👥 En grupo</label></div>
+                <div class="chip"><input type="radio" name="modalidad" id="m1" value="Individual" required checked><label for="m1"><i class="fa-solid fa-user"></i>Solo</label></div>
+                <div class="chip"><input type="radio" name="modalidad" id="m2" value="Grupal"><label for="m2"><i class="fa-solid fa-users"></i>En grupo</label></div>
               </div>
             </div>
 
@@ -288,10 +387,10 @@
             <div class="field">
               <span class="lbl">¿Qué vas a necesitar? <span class="opc">(marca lo que aplique)</span></span>
               <div class="chips">
-                <div class="chip"><input type="checkbox" name="necesidad" id="n1" value="Micrófono"><label for="n1">🎤 Micrófono</label></div>
-                <div class="chip"><input type="checkbox" name="necesidad" id="n2" value="Entrada para instrumento"><label for="n2">🎛️ Entrada para instrumento</label></div>
-                <div class="chip"><input type="checkbox" name="necesidad" id="n3" value="Pista musical"><label for="n3">🎵 Pista musical</label></div>
-                <div class="chip"><input type="checkbox" name="necesidad" id="n4" value="Proyector"><label for="n4">📽️ Proyector</label></div>
+                <div class="chip"><input type="checkbox" name="necesidad" id="n1" value="Micrófono"><label for="n1"><i class="fa-solid fa-microphone-lines"></i>Micrófono</label></div>
+                <div class="chip"><input type="checkbox" name="necesidad" id="n2" value="Entrada para instrumento"><label for="n2"><i class="fa-solid fa-plug"></i>Entrada para instrumento</label></div>
+                <div class="chip"><input type="checkbox" name="necesidad" id="n3" value="Pista musical"><label for="n3"><i class="fa-solid fa-compact-disc"></i>Pista musical</label></div>
+                <div class="chip"><input type="checkbox" name="necesidad" id="n4" value="Proyector"><label for="n4"><i class="fa-solid fa-display"></i>Proyector</label></div>
               </div>
               <p class="ayuda" id="ayudaPista" hidden>Envía la pista en MP3 a la organización antes del evento, con tu nombre en el archivo.</p>
             </div>
@@ -302,7 +401,7 @@
             </div>
 
             <details class="reglas">
-              <summary>📜 Reglamento</summary>
+              <summary><span><i class="fa-solid fa-scroll"></i>Reglamento</span></summary>
               <ul>
                 <li>Máximo <strong>5 minutos</strong> por presentación.</li>
                 <li>El contenido debe ser apropiado para un evento cristiano.</li>
@@ -335,10 +434,12 @@
 
       <!-- ÉXITO -->
       <div class="exito" id="exito" hidden>
-        <div class="exito-icono">✓</div>
+        <div class="exito-icono"><i class="fa-solid fa-check"></i></div>
         <h2 id="exitoTitulo">¡Ya estás inscrito!</h2>
         <p id="exitoTexto"></p>
-        <div class="codigo" id="codigo"></div>
+        <div class="codigo" id="codigo"></div><br>
+        <div class="resumen-cena" id="resumenCena"></div>
+        <p class="nota-ventas" style="max-width:480px;margin:14px auto 0;text-align:left"><i class="fa-solid fa-mug-hot"></i><span>Recuerda: habrá <strong>ventas de café, comidas rápidas y más</strong>, que se pagan aparte. ¡Lleva dinero para apoyar!</span></p>
         <div class="pasos" id="pasosParticipante" hidden>
           <strong>Qué sigue:</strong><br>
           1. Te contactaremos por WhatsApp para confirmar tu presentación.<br>
@@ -354,7 +455,7 @@
 
   <footer>
     <strong>Talento con Propósito</strong> · Día del Joven Metodista 2026<br>
-    Una celebración de los dones que Dios ha puesto en nosotros. ❤️
+    Una celebración de los dones que Dios ha puesto en nosotros.
   </footer>
 
   <script>
@@ -393,7 +494,7 @@
       const bloque = $('talento');
       bloque.hidden = !participa;
       bloque.disabled = !participa;       // deshabilitado = no se valida
-      $('btnEnviar').textContent = participa ? '🔥 Inscribir mi talento' : 'Confirmar inscripción';
+      $('btnEnviar').innerHTML = participa ? '<i class="fa-solid fa-fire"></i> Inscribir mi talento' : 'Confirmar inscripción';
     }
     document.querySelectorAll('input[name="tipo"]').forEach(r => r.addEventListener('change', () => {
       actualizarTalento();
@@ -407,6 +508,73 @@
     }
     document.querySelectorAll('input[name="modalidad"]').forEach(r => r.addEventListener('change', actualizarGrupo));
     $('n3').addEventListener('change', e => $('ayudaPista').hidden = !e.target.checked);
+    /* ===== CENA Y PAGO ===== */
+    function actualizarPago(){
+      const si = $('cenaSi').checked;
+      $('pago').hidden = !si;
+      $('pago').disabled = !si;
+    }
+    document.querySelectorAll('input[name="cena"]').forEach(r => r.addEventListener('change', () => {
+      $('bloqueCena').classList.remove('falta');
+      actualizarPago();
+    }));
+
+    function pintarArchivo(){
+      const f = $('comprobante').files[0];
+      $('subir').classList.toggle('listo', !!f);
+      $('subirIcono').className = f ? 'fa-solid fa-circle-check' : 'fa-solid fa-cloud-arrow-up';
+      $('subirTitulo').innerHTML = f ? 'Comprobante listo' : 'Sube el comprobante <span class="req">*</span>';
+      $('subirDetalle').textContent = f ? f.name + ' · toca para cambiarlo' : 'Foto o captura de pantalla (también PDF) · máx. 5 MB';
+    }
+    $('comprobante').addEventListener('change', e => {
+      const f = e.target.files[0];
+      if (f && f.size > 5 * 1024 * 1024){
+        e.target.value = '';
+        alert('El comprobante pesa más de 5 MB. Envía una captura de pantalla en lugar de la foto original.');
+      }
+      $('bloqueCena').classList.remove('falta');
+      pintarArchivo();
+    });
+
+    document.querySelectorAll('[data-copiar]').forEach(b => b.addEventListener('click', async () => {
+      try { await navigator.clipboard.writeText(b.dataset.copiar); const t = b.textContent; b.textContent = '¡Copiado!'; setTimeout(() => b.textContent = t, 1500); }
+      catch (e) { /* el navegador no permite copiar: se copia a mano */ }
+    }));
+
+    // Las fotos se achican antes de enviarlas (suben más rápido con datos móviles)
+    function aBase64(blob){
+      return new Promise((ok, mal) => {
+        const r = new FileReader();
+        r.onload = () => ok(String(r.result).split(',')[1]);
+        r.onerror = () => mal(new Error('No se pudo leer el archivo'));
+        r.readAsDataURL(blob);
+      });
+    }
+    async function leerComprobante(file){
+      if (!file.type.startsWith('image/') || file.type === 'image/gif'){
+        return { nombre: file.name, tipo: file.type || 'application/pdf', base64: await aBase64(file) };
+      }
+      try {
+        const img = await new Promise((ok, mal) => {
+          const url = URL.createObjectURL(file);
+          const im = new Image();
+          im.onload = () => { URL.revokeObjectURL(url); ok(im); };
+          im.onerror = () => { URL.revokeObjectURL(url); mal(new Error('imagen')); };
+          im.src = url;
+        });
+        const esc = Math.min(1, 1600 / Math.max(img.naturalWidth, img.naturalHeight));
+        const c = document.createElement('canvas');
+        c.width = Math.round(img.naturalWidth * esc); c.height = Math.round(img.naturalHeight * esc);
+        const ctx = c.getContext('2d');
+        ctx.fillStyle = '#fff'; ctx.fillRect(0, 0, c.width, c.height);
+        ctx.drawImage(img, 0, 0, c.width, c.height);
+        const blob = await new Promise(ok => c.toBlob(ok, 'image/jpeg', 0.82));
+        return { nombre: file.name.replace(/\.[^.]+$/, '') + '.jpg', tipo: 'image/jpeg', base64: await aBase64(blob) };
+      } catch (e) {
+        // Formatos que el navegador no puede abrir (ej. HEIC): se envía el original
+        return { nombre: file.name, tipo: file.type || 'application/octet-stream', base64: await aBase64(file) };
+      }
+    }
 
     /* ===== ENVÍO ===== */
     function mostrarError(msg){
@@ -418,6 +586,15 @@
       e.preventDefault();
       $('error').classList.remove('show');
 
+      // La cena es lo primero que se revisa: si falta, se marca en rojo y se lleva a la persona ahí
+      const faltaCena = msg => {
+        $('cenaErrorTexto').textContent = msg;
+        const b = $('bloqueCena');
+        b.classList.remove('falta'); void b.offsetWidth; b.classList.add('falta');
+        b.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      };
+      if (!document.querySelector('input[name="cena"]:checked')) return faltaCena('Falta responder si te quedas a la cena.');
+      if ($('cenaSi').checked && !$('comprobante').files[0]) return faltaCena('Falta subir el comprobante de pago de la cena (₡2.500).');
       if (!form.reportValidity()) return;
 
       const tel = $('telefono').value.replace(/\D/g, '');
@@ -446,11 +623,15 @@
       };
 
       const btn = $('btnEnviar');
-      const textoBtn = btn.textContent;
+      const textoBtn = btn.innerHTML;
       btn.disabled = true;
       btn.textContent = 'Enviando…';
 
       try {
+        if (datos.cena === 'Sí'){
+          btn.textContent = 'Subiendo comprobante…';
+          datos.comprobante = await leerComprobante($('comprobante').files[0]);
+        }
         const r = await fetch(API_URL, {
           method: 'POST',
           headers: { 'Content-Type': 'text/plain;charset=utf-8' },
@@ -463,7 +644,7 @@
         console.error(err);
         mostrarError('No se pudo enviar la inscripción. Revisa tu conexión e intenta de nuevo. Si sigue fallando, avísale a tu líder.');
         btn.disabled = false;
-        btn.textContent = textoBtn;
+        btn.innerHTML = textoBtn;
       }
     });
 
@@ -473,16 +654,21 @@
       $('exito').hidden = false;
       $('codigo').textContent = numero || 'Registrado';
       if (d.tipo === 'Participante'){
-        $('exitoTitulo').textContent = `¡Listo, ${nombre}! 🎤`;
+        $('exitoTitulo').textContent = `¡Listo, ${nombre}!`;
         $('exitoTexto').textContent = `Recibimos tu inscripción para presentar "${d.presentacion}". Gracias por querer compartir el talento que Dios te dio.` +
-          (d.cena === 'Sí' ? ' Ya contamos tu plato para la cena. 🍽️' : '');
+          '';
         $('pasosParticipante').hidden = false;
       } else {
-        $('exitoTitulo').textContent = `¡Nos vemos ahí, ${nombre}! 🙌`;
+        $('exitoTitulo').textContent = `¡Nos vemos ahí, ${nombre}!`;
         $('exitoTexto').textContent = 'Tu espacio está reservado. Te esperamos el domingo 11 de octubre a las 3:00 p. m.' +
-          (d.cena === 'Sí' ? ' Ya contamos tu plato para la cena. 🍽️' : '');
+          '';
         $('pasosParticipante').hidden = true;
       }
+      const rc = $('resumenCena');
+      rc.className = 'resumen-cena ' + (d.cena === 'Sí' ? 'si' : 'no');
+      rc.innerHTML = d.cena === 'Sí'
+        ? '<i class="fa-solid fa-utensils"></i> Cena: sí. Recibimos tu comprobante y lo vamos a verificar.'
+        : '<i class="fa-solid fa-utensils"></i> Cena: no te quedas.';
       window.scrollTo({ top: document.querySelector('.card').offsetTop - 20, behavior: 'smooth' });
     }
 
@@ -494,6 +680,8 @@
       $('conferencia').dispatchEvent(new Event('change'));
       $('iglesia').value = igl;
       actualizarTalento(); actualizarGrupo(); $('ayudaPista').hidden = true;
+      $('bloqueCena').classList.remove('falta');
+      actualizarPago(); pintarArchivo();
       $('btnEnviar').disabled = false;
       $('exito').hidden = true;
       form.hidden = false;
@@ -502,6 +690,7 @@
 
     actualizarTalento();
     actualizarGrupo();
+    actualizarPago();
   </script>
 </body>
 </html>
