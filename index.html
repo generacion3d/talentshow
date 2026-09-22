@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>Talento con Propósito | Día del Joven Metodista 2026</title>
-  <meta name="description" content="Día del Joven Metodista 2026: 11 de octubre. Entrada e inscripción al Talent Show gratis; cena ₡2.500. Inscríbete para asistir o presentar tu talento.">
+  <meta name="description" content="Día del Joven Metodista 2026: 11 de octubre. Entrada e inscripción al Talent Show gratis; casado de cena ₡2.500. Inscríbete para asistir o presentar tu talento.">
   <meta name="theme-color" content="#09090b">
   <meta property="og:title" content="Talento con Propósito | Día del Joven Metodista 2026">
   <meta property="og:description" content="11 de octubre · 3:00 a 7:00 p. m. · Entrada gratuita. Inscríbete para asistir o para presentar tu talento.">
@@ -59,6 +59,12 @@
     .aviso-ventas > i{font-size:1.5rem;color:#facc15;margin-top:2px}
     .aviso-ventas p{color:#fef9c3;font-size:.95rem;line-height:1.55}
     .aviso-ventas strong{color:#fff}
+    .aviso-cena{display:flex;gap:12px;align-items:flex-start;margin:0 0 18px;padding:14px 16px;border-radius:14px;background:rgba(250,204,21,.1);border:1.5px solid rgba(250,204,21,.55)}
+    .aviso-cena > i{color:#facc15;font-size:1.25rem;margin-top:2px}
+    .aviso-cena p{color:#fef9c3;font-size:.92rem;line-height:1.55}
+    .aviso-cena strong{color:#fff}
+    .nota-no{display:none;margin-top:12px;color:#fed7aa;font-size:.86rem;line-height:1.5}
+    .nota-no.show{display:flex;gap:8px;align-items:flex-start}
     .nota-ventas{display:flex;gap:10px;align-items:flex-start;margin-top:14px;padding:12px 14px;border-radius:12px;background:rgba(250,204,21,.08);border:1px solid rgba(250,204,21,.35);color:#fef9c3;font-size:.86rem;line-height:1.5}
     .nota-ventas i{color:#facc15;margin-top:3px}
     @media (max-width:640px){ .precios{grid-template-columns:1fr} }
@@ -224,7 +230,7 @@
         </div>
         <div class="precio-item naranja">
           <i class="fa-solid fa-utensils"></i>
-          <div><strong>Cena</strong><span>₡2.500 · se paga al inscribirte</span></div>
+          <div><strong>Cena: casado</strong><span>₡2.500 · apártalo en este formulario</span></div>
         </div>
         <div class="precio-item">
           <i class="fa-solid fa-store"></i>
@@ -234,7 +240,7 @@
 
       <div class="aviso-ventas">
         <i class="fa-solid fa-mug-hot"></i>
-        <p>Durante toda la tarde habrá <strong>ventas de café, comidas rápidas, postres y más</strong>. Estas ventas <strong>no están incluidas en la cena</strong>: cada compra se paga aparte en el puesto. ¡Puedes apoyar con tu compra!</p>
+        <p>Durante toda la tarde habrá <strong>ventas de café, comidas rápidas, postres y más</strong>. Estas ventas <strong>no están incluidas en el casado</strong>: cada compra se paga aparte en el puesto. ¡Puedes apoyar con tu compra!</p>
       </div>
     </div>
   </header>
@@ -282,20 +288,24 @@
         <!-- CENA (lo más importante para la organización) -->
         <section class="bloque cena" id="bloqueCena" aria-labelledby="tituloCena">
           <span class="cena-importante"><i class="fa-solid fa-triangle-exclamation"></i>Muy importante</span>
-          <h2 id="tituloCena"><i class="fa-solid fa-utensils"></i>¿Te quedas a la cena? <span class="req">*</span></h2>
-          <p class="sub">Con esta respuesta calculamos cuánta comida preparar. La cena tiene un costo de <strong>₡2.500</strong> y se confirma con el comprobante de pago.</p>
+          <h2 id="tituloCena"><i class="fa-solid fa-utensils"></i>¿Te quedas a cenar? <span class="req">*</span></h2>
+          <p class="sub">Cerramos la tarde con un <strong>casado bien servido</strong> por solo <strong>₡2.500</strong>. Lo apartas aquí mismo con tu comprobante.</p>
+          <div class="aviso-cena">
+            <i class="fa-solid fa-bell"></i>
+            <p><strong>Ojo: los casados se hacen contaditos.</strong> Solo vamos a tener plato para quienes lo aparten en este formulario, así que si te quedas, apártalo de una vez. ¡Que no te quedes con las ganas!</p>
+          </div>
           <div class="eleccion cena-opciones" role="radiogroup" aria-label="Cena">
             <div class="opcion">
               <input type="radio" name="cena" id="cenaSi" value="Sí" required>
-              <label for="cenaSi"><i class="op-icono fa-solid fa-utensils" aria-hidden="true"></i><span class="op-titulo">Sí, me quedo<span class="precio">₡2.500</span></span></label>
+              <label for="cenaSi"><i class="op-icono fa-solid fa-utensils" aria-hidden="true"></i><span class="op-titulo">¡Sí, apártame uno!<span class="precio">₡2.500</span></span></label>
             </div>
             <div class="opcion">
               <input type="radio" name="cena" id="cenaNo" value="No">
-              <label for="cenaNo"><i class="op-icono fa-solid fa-person-walking-arrow-right" aria-hidden="true"></i><span class="op-titulo">No, gracias</span></label>
+              <label for="cenaNo"><i class="op-icono fa-solid fa-person-walking-arrow-right" aria-hidden="true"></i><span class="op-titulo">Esta vez no</span></label>
             </div>
           </div>
           <fieldset class="pago" id="pago" hidden disabled>
-            <h3><i class="fa-solid fa-wallet"></i>Paga tu cena</h3>
+            <h3><i class="fa-solid fa-wallet"></i>Aparta tu casado</h3>
             <div class="monto">₡2.500</div>
             <div class="medios">
               <div class="medio">
@@ -311,8 +321,8 @@
                 <button type="button" class="copiar" data-copiar="CR31015185810010002264">Copiar IBAN</button>
               </div>
             </div>
-            <p class="ayuda" style="margin-bottom:12px">En el detalle del pago escribe: <strong>Cena + tu nombre</strong>.</p>
-            <p class="nota-ventas" style="margin:0 0 14px"><i class="fa-solid fa-circle-info"></i><span>Los ₡2.500 son <strong>solo la cena</strong>. El café, las comidas rápidas y demás ventas del evento se pagan aparte.</span></p>
+            <p class="ayuda" style="margin-bottom:12px">En el detalle del pago escribe: <strong>Casado + tu nombre</strong>.</p>
+            <p class="nota-ventas" style="margin:0 0 14px"><i class="fa-solid fa-circle-info"></i><span>Los ₡2.500 son <strong>solo el casado</strong>. El café, las comidas rápidas y demás ventas del evento se pagan aparte.</span></p>
             <label class="subir" id="subir">
               <i class="fa-solid fa-cloud-arrow-up" id="subirIcono"></i>
               <strong id="subirTitulo">Sube el comprobante <span class="req">*</span></strong>
@@ -320,7 +330,8 @@
               <input type="file" id="comprobante" accept="image/*,.pdf" required>
             </label>
           </fieldset>
-          <p class="cena-error" role="alert"><i class="fa-solid fa-circle-exclamation"></i><span id="cenaErrorTexto">Falta responder si te quedas a la cena.</span></p>
+          <p class="nota-no" id="notaNo"><i class="fa-solid fa-circle-info" style="margin-top:3px"></i><span>¡Tranqui! No te apartamos casado. Si te entra el hambre y cambias de idea, avísale a la organización antes del evento.</span></p>
+          <p class="cena-error" role="alert"><i class="fa-solid fa-circle-exclamation"></i><span id="cenaErrorTexto">Te faltó decirnos si te quedas a cenar.</span></p>
         </section>
 
         <!-- 2. ¿CÓMO PARTICIPAS? -->
@@ -513,6 +524,7 @@
       const si = $('cenaSi').checked;
       $('pago').hidden = !si;
       $('pago').disabled = !si;
+      $('notaNo').classList.toggle('show', $('cenaNo').checked);
     }
     document.querySelectorAll('input[name="cena"]').forEach(r => r.addEventListener('change', () => {
       $('bloqueCena').classList.remove('falta');
@@ -593,8 +605,8 @@
         b.classList.remove('falta'); void b.offsetWidth; b.classList.add('falta');
         b.scrollIntoView({ behavior: 'smooth', block: 'center' });
       };
-      if (!document.querySelector('input[name="cena"]:checked')) return faltaCena('Falta responder si te quedas a la cena.');
-      if ($('cenaSi').checked && !$('comprobante').files[0]) return faltaCena('Falta subir el comprobante de pago de la cena (₡2.500).');
+      if (!document.querySelector('input[name="cena"]:checked')) return faltaCena('Te faltó decirnos si te quedas a cenar.');
+      if ($('cenaSi').checked && !$('comprobante').files[0]) return faltaCena('Te faltó subir el comprobante de tu casado (₡2.500).');
       if (!form.reportValidity()) return;
 
       const tel = $('telefono').value.replace(/\D/g, '');
@@ -667,8 +679,8 @@
       const rc = $('resumenCena');
       rc.className = 'resumen-cena ' + (d.cena === 'Sí' ? 'si' : 'no');
       rc.innerHTML = d.cena === 'Sí'
-        ? '<i class="fa-solid fa-utensils"></i> Cena: sí. Recibimos tu comprobante y lo vamos a verificar.'
-        : '<i class="fa-solid fa-utensils"></i> Cena: no te quedas.';
+        ? '<i class="fa-solid fa-utensils"></i> ¡Tu casado está apartado! Solo nos falta verificar el comprobante.'
+        : '<i class="fa-solid fa-utensils"></i> Esta vez no apartaste casado. Si cambias de idea, avísale a la organización.';
       window.scrollTo({ top: document.querySelector('.card').offsetTop - 20, behavior: 'smooth' });
     }
 
